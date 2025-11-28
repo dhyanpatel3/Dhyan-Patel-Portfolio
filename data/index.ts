@@ -28,8 +28,8 @@ export const socialLinks: SocialLink[] = [
   },
   {
     name: "Instagram",
-    username: "@dhyanpatel3",
-    url: "https://instagram.com/dhyanpatel3",
+    username: "@dhyann.patel",
+    url: "https://instagram.com/dhyann.patel",
     icon: Instagram,
     color: "#E1306C",
     bg: "#fdf2f5",
