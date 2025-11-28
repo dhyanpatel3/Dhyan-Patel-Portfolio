@@ -61,7 +61,7 @@ const Hero: React.FC<HeroProps> = ({
           {/* CTA Buttons */}
           <div className="flex flex-wrap gap-3 justify-center sm:justify-start">
             <a
-              href="https://drive.google.com/file/d/1DllV50-CXZadoV9fmxIDE5mr5Kh_eZta/view?usp=sharing"
+              href="https://drive.google.com/file/d/1AAW8lVRZD0PqsONs8Pa9g-0XyMXrSlA4/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-4 py-2 rounded-md bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 text-sm font-medium transition-all duration-300 ease-out hover:scale-105 active:scale-95 shadow-sm"
