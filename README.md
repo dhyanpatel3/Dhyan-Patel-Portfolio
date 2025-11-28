@@ -1,20 +1,43 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Dhyan Patel
 
-# Run and deploy your AI Studio app
+**Full-Stack Developer**
+Passionate about building scalable web applications and intuitive user experiences.
 
-This contains everything you need to run your app locally.
+## 🛠 Tech Stack
 
-View your app in AI Studio: https://ai.studio/apps/drive/17-70qzZwl7aTOhaZUHYfwP3X3huhKBwS
+- **Languages:** JavaScript, TypeScript, Python, Java
+- **Frontend:** React, Tailwind CSS, Vite, HTML5, CSS3
+- **Backend:** Node.js, Express, MongoDB, MySQL
+- **Tools:** Git, GitHub, Postman, Vercel
 
-## Run Locally
+## 🚀 Projects
 
-**Prerequisites:**  Node.js
+### [ChitChat](https://chit-chat-rose-omega.vercel.app/login)
 
+Real-time messenger with secure JWT authentication and Socket.io.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+- **Tech:** MongoDB, Express, React, Node.js, Socket.io
+- [View Code](https://github.com/dhyanpatel3/ChitChat)
+
+### [AI-Calculator](https://ai-calculator-frontend-tau.vercel.app/)
+
+Generative AI math solver using Google Gemini API.
+
+- **Tech:** React, TypeScript, Gemini API, Mantine
+- [View Code](https://github.com/dhyanpatel3/AI-Calculator)
+
+## 📬 Contact
+
+- [LinkedIn](https://linkedin.com/in/dhyan-patel3)
+- [GitHub](https://github.com/dhyanpatel3)
+- [X / Twitter](https://x.com/dhyannpatel)
+- [Instagram](https://instagram.com/dhyanpatel3)
+
+## 🏃‍♂️ Run Locally
+
+```bash
+git clone https://github.com/dhyanpatel3/dhyan-patel-portfolio.git
+cd dhyan-patel-portfolio
+npm install
+npm run dev
+```
