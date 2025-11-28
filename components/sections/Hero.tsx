@@ -42,7 +42,7 @@ const Hero: React.FC<HeroProps> = ({
         <motion.div variants={itemVariants} className="flex-1">
           <motion.h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 mb-5">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-zinc-900 to-zinc-600 dark:from-zinc-100 dark:to-zinc-400 inline-block pb-2">
-              Dhyan Patel
+              Hi, I'm Dhyan Patel
             </span>
           </motion.h1>
           <p className="text-lg text-zinc-600 dark:text-zinc-400 max-w-md mx-auto sm:mx-0 leading-relaxed font-light mb-8">
