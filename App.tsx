@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Variants } from "framer-motion";
+import { Analytics } from "@vercel/analytics/react"
 
 // Layout & Sections
 import Navbar from "./components/layout/Navbar";
@@ -120,6 +121,7 @@ const App: React.FC = () => {
   };
 
   return (
+    <>
     <div
       className={`min-h-screen relative bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50 font-sans transition-all duration-1000 ease-in-out ${
         isTransitioning ? "blur-sm scale-[0.98]" : ""
@@ -176,6 +178,8 @@ const App: React.FC = () => {
         <Footer />
       </main>
     </div>
+      <Analytics />
+    </>
   );
 };
 
