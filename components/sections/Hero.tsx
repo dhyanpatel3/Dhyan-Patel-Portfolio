@@ -84,15 +84,18 @@ const Hero: React.FC<HeroProps> = ({
         >
           {/* 3D Tilt Avatar */}
           <div className="w-32 h-32 sm:w-40 sm:h-40">
-            <TiltCard className="w-full h-full rounded-2xl bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 shadow-lg flex items-center justify-center overflow-visible">
+            <TiltCard className="w-full h-full rounded-2xl bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 shadow-2xl flex items-center justify-center overflow-visible">
               <img
                 src="/avatar.png"
                 alt="Dhyan Patel"
-                className="w-full h-full object-cover rounded-2xl"
-                style={{ transform: "translateZ(20px)" }}
+                className="w-[90%] h-[90%] object-cover rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+                style={{ transform: "translateZ(50px)" }}
               />
               {/* Decorative Element floating behind */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-purple-500/10 rounded-2xl -z-10" />
+              <div
+                className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-purple-500/20 rounded-2xl -z-10 blur-xl"
+                style={{ transform: "translateZ(-20px)" }}
+              />
             </TiltCard>
           </div>
         </motion.div>
