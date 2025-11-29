@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Variants, AnimatePresence } from "framer-motion";
+import { Variants, AnimatePresence, motion } from "framer-motion";
 import { Analytics } from "@vercel/analytics/react";
 import Lenis from "lenis";
 
@@ -72,7 +72,7 @@ const App: React.FC = () => {
       }
       return newMode;
     });
-    setTimeout(() => setIsTransitioning(false), 1000);
+    setTimeout(() => setIsTransitioning(false), 500);
   };
 
   // Handle Scroll to update active section
@@ -154,7 +154,7 @@ const App: React.FC = () => {
       </AnimatePresence>
 
       <div
-        className={`min-h-screen relative bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50 font-sans transition-all duration-1000 ease-in-out ${
+        className={`min-h-screen relative bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50 font-sans transition-all duration-500 ease-in-out ${
           isTransitioning ? "blur-sm scale-[0.98]" : ""
         }`}
       >
@@ -179,7 +179,12 @@ const App: React.FC = () => {
         />
 
         {/* Main Content */}
-        <main className="max-w-3xl mx-auto px-6 pt-36 pb-20 relative z-10">
+        <motion.main
+          className="max-w-3xl mx-auto px-6 pt-36 pb-20 relative z-10"
+          initial="hidden"
+          animate={isLoading ? "hidden" : "visible"}
+          variants={containerVariants}
+        >
           <Hero
             containerVariants={containerVariants}
             itemVariants={itemVariants}
@@ -207,7 +212,7 @@ const App: React.FC = () => {
           />
 
           <Footer />
-        </main>
+        </motion.main>
       </div>
       <Analytics />
     </>

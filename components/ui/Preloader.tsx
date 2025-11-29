@@ -1,32 +1,31 @@
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
+import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 
 const Preloader = ({ onComplete }: { onComplete: () => void }) => {
-  const [count, setCount] = useState(0);
+  const count = useMotionValue(0);
+  const rounded = useTransform(count, (latest) => Math.round(latest));
+  const ref = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
-    const duration = 2000; // 2 seconds total
-    const steps = 100;
-    const intervalTime = duration / steps;
+    const controls = animate(count, 100, {
+      duration: 2.5,
+      ease: "easeInOut",
+      onComplete: () => {
+        setTimeout(onComplete, 200);
+      },
+    });
 
-    const timer = setInterval(() => {
-      setCount((prev) => {
-        if (prev >= 100) {
-          clearInterval(timer);
-          return 100;
-        }
-        return prev + 1;
-      });
-    }, intervalTime);
+    const unsubscribe = rounded.on("change", (latest) => {
+      if (ref.current) {
+        ref.current.textContent = latest.toString();
+      }
+    });
 
-    return () => clearInterval(timer);
-  }, []);
-
-  useEffect(() => {
-    if (count === 100) {
-      setTimeout(onComplete, 800);
-    }
-  }, [count, onComplete]);
+    return () => {
+      controls.stop();
+      unsubscribe();
+    };
+  }, [count, onComplete, rounded]);
 
   return (
     <motion.div
@@ -34,17 +33,18 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
       initial={{ y: 0 }}
       exit={{
         y: "-100%",
-        transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] },
+        transition: { duration: 0.9, ease: [0.83, 0, 0.17, 1] },
       }}
     >
-      <div className="relative overflow-hidden px-8 py-2">
+      <div className="relative overflow-hidden px-4 py-2 md:px-8">
         <motion.h1
-          className="text-[15vw] leading-none font-bold font-mono tracking-tighter"
+          ref={ref}
+          className="text-[25vw] md:text-[15vw] leading-none font-bold font-mono tracking-tighter tabular-nums"
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          {count}
+          0
         </motion.h1>
         <div className="absolute top-0 right-0 text-sm font-mono opacity-50">
           LOADING
@@ -53,7 +53,7 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
 
       {/* Decorative elements */}
       <motion.div
-        className="absolute bottom-10 left-10 text-xs font-mono opacity-50"
+        className="absolute bottom-6 left-6 md:bottom-10 md:left-10 text-[10px] md:text-xs font-mono opacity-50"
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.5 }}
         transition={{ delay: 0.5 }}
@@ -64,7 +64,7 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
       </motion.div>
 
       <motion.div
-        className="absolute bottom-10 right-10 text-xs font-mono opacity-50 text-right"
+        className="absolute bottom-6 right-6 md:bottom-10 md:right-10 text-[10px] md:text-xs font-mono opacity-50 text-right"
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.5 }}
         transition={{ delay: 0.5 }}

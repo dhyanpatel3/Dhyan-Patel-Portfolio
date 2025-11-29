@@ -33,8 +33,6 @@ const Hero: React.FC<HeroProps> = ({
   return (
     <motion.section
       id="home"
-      initial="hidden"
-      animate="visible"
       variants={containerVariants}
       className="mb-24 scroll-mt-36"
     >
