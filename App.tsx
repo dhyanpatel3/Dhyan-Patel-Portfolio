@@ -18,6 +18,7 @@ import { navItems } from "./data";
 
 const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [showContent, setShowContent] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -149,7 +150,7 @@ const App: React.FC = () => {
 
   return (
     <>
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="wait" onExitComplete={() => setShowContent(true)}>
         {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
       </AnimatePresence>
 
@@ -182,7 +183,7 @@ const App: React.FC = () => {
         <motion.main
           className="max-w-3xl mx-auto px-6 pt-36 pb-20 relative z-10"
           initial="hidden"
-          animate={isLoading ? "hidden" : "visible"}
+          animate={showContent ? "visible" : "hidden"}
           variants={containerVariants}
         >
           <Hero
