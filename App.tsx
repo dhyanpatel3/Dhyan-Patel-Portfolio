@@ -121,19 +121,19 @@ const App: React.FC = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.12, // Slightly slower stagger for elegance
-        delayChildren: 0.1,
+        staggerChildren: 0.08, // Faster stagger for quicker reveal
+        delayChildren: 0.0, // Start immediately
         ease: "easeOut",
-        duration: 0.6,
+        duration: 0.5,
       },
     },
   };
 
   const itemVariants: Variants = {
     hidden: {
-      y: 25,
+      y: 20, // Reduced distance for subtler movement
       opacity: 0,
-      filter: "blur(4px)", // The key to smooth "apple-like" reveal
+      filter: "blur(4px)",
     },
     visible: {
       y: 0,
@@ -141,9 +141,9 @@ const App: React.FC = () => {
       filter: "blur(0px)",
       transition: {
         type: "spring",
-        stiffness: 70, // Lower stiffness = softer movement
-        damping: 18, // Higher damping = less bounce, more slide
-        mass: 0.8,
+        stiffness: 100, // Higher stiffness = snappier
+        damping: 20, // Higher damping = no wobble
+        mass: 0.5, // Lighter mass = faster acceleration
       },
     },
   };
