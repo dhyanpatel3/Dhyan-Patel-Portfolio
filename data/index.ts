@@ -131,7 +131,35 @@ export const techStack: TechItem[] = [
   },
 ];
 
+export const experiences = [
+  {
+    company: "Equanimous Technologies",
+    companyLink: "https://equanimoustech.com/",
+    role: "Software Developer Intern",
+    period: "Jan 2026 – Mar 2026",
+    description:
+      "Built an AI-Powered Real Estate Estimate Agent using the MERN Stack, integrating Generative AI to automate property estimation and architectural floor plan analysis workflows. Designed and implemented RESTful APIs for seamless frontend-backend communication; integrated Google Gemini API for intelligent document and image processing. Developed responsive React.js UI components and MongoDB schemas to support end-to-end estimate generation and storage.",
+  },
+];
+
 export const projects: Project[] = [
+  {
+    title: "AI Floor Plan Analysis",
+    description:
+      "Full-stack web app that processes uploaded architectural floor plan images using the Google Gemini API to extract room layouts, dimensions, and structural insights automatically. Built a React.js + Tailwind CSS frontend for seamless image uploads and an Express.js backend for API communication, image processing, and automated report generation.",
+    tags: [
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "Google Gemini API",
+      "Tailwind CSS",
+      "Vite",
+    ],
+    github: "https://github.com/dhyanpatel3/AI-Floor-Plan-Analysis",
+    link: "https://ai-floor-plan-analysis.vercel.app/",
+    dates: "2026",
+    imageUrl: "/aifloorplan.png",
+  },
   {
     title: "ChitChat",
     description:
@@ -164,6 +192,7 @@ export const projects: Project[] = [
 export const navItems = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
+  { name: "Experience", href: "#experience" },
   { name: "Skills", href: "#skills" },
   { name: "Projects", href: "#projects" },
   { name: "Contact", href: "#contact" },

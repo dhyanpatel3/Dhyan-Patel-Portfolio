@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export interface Project {
   title: string;
@@ -12,6 +12,7 @@ export interface Project {
 
 export interface Experience {
   company: string;
+  companyLink?: string;
   role: string;
   period: string;
   description?: string;

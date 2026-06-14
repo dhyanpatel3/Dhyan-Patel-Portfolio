@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Variants, AnimatePresence, motion } from "framer-motion";
 import { Analytics } from "@vercel/analytics/react";
-import Lenis from "lenis";
 
 // Layout & Sections
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import Hero from "./components/sections/Hero";
 import About from "./components/sections/About";
+import Experience from "./components/sections/Experience";
 import Skills from "./components/sections/Skills";
 import Projects from "./components/sections/Projects";
 import Contact from "./components/sections/Contact";
@@ -27,30 +27,6 @@ const App: React.FC = () => {
   useEffect(() => {
     setIsDarkMode(false);
     document.documentElement.classList.remove("dark");
-  }, []);
-
-  // Initialize Lenis Smooth Scroll
-  useEffect(() => {
-    const lenis = new Lenis({
-      duration: 2.0,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: "vertical",
-      gestureOrientation: "vertical",
-      smoothWheel: true,
-      wheelMultiplier: 0.7,
-      touchMultiplier: 1.5,
-    });
-
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
-    return () => {
-      lenis.destroy();
-    };
   }, []);
 
   const toggleTheme = () => {
@@ -101,7 +77,7 @@ const App: React.FC = () => {
 
   const scrollToSection = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    href: string
+    href: string,
   ) => {
     e.preventDefault();
     const targetId = href.replace("#", "");
@@ -193,6 +169,11 @@ const App: React.FC = () => {
           />
 
           <About
+            containerVariants={containerVariants}
+            itemVariants={itemVariants}
+          />
+
+          <Experience
             containerVariants={containerVariants}
             itemVariants={itemVariants}
           />
